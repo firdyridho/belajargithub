@@ -1,7 +1,17 @@
 export default {
   optimizeDeps: {
     noDiscovery: true,
-    include: [],
+    include: [
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
+      "lucide-react",
+      "react-hook-form",
+      "zod",
+      "@hookform/resolvers/zod",
+      "zustand"
+    ],
   },
   build: {
     outDir: "dist",
