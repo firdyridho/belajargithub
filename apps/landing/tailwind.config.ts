@@ -85,6 +85,17 @@ const config: Config = {
         xl: "0.75rem",
         full: "9999px",
       },
+      fontSize: {
+        h3: ["20px", { lineHeight: "1.4", fontWeight: "600" }],
+        h2: ["28px", { lineHeight: "1.4", fontWeight: "600" }],
+        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "label-caps": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+        "display-lg-mobile": ["40px", { lineHeight: "1.2", fontWeight: "700" }],
+        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        h1: ["36px", { lineHeight: "1.3", fontWeight: "700" }],
+        "mono-code": ["14px", { lineHeight: "1.5", fontWeight: "400" }]
+      },
     },
   },
   plugins: [],
