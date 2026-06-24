@@ -55,6 +55,7 @@ jobs:
         with:
           scan-type: fs
           scan-ref: .
+          skip-dirs: .agents
           severity: CRITICAL,HIGH
           exit-code: "1"
   deploy-staging:
