@@ -68,7 +68,7 @@ export default function App() {
   const renderContent = () => {
     switch (route) {
       case "/":
-        return <HomePage onOpenJoinModal={() => setIsJoinModalOpen(true)} />
+        return <HomePage onOpenJoinModal={() => setIsJoinModalOpen(true)} isDark={isDark} />
       case "/about":
         return <AboutPage />
       case "/organigram":
@@ -155,7 +155,7 @@ export default function App() {
           </section>
         )
       default:
-        return <HomePage onOpenJoinModal={() => setIsJoinModalOpen(true)} />
+        return <HomePage onOpenJoinModal={() => setIsJoinModalOpen(true)} isDark={isDark} />
     }
   }
 

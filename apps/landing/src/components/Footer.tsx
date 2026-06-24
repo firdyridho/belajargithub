@@ -86,7 +86,7 @@ export function Footer() {
           </div>
 
           <div className="mt-8 font-body-md text-body-md text-on-surface-variant">
-            © 2024 Tirtayasa Information Security Society. All rights reserved.
+            © {new Date().getFullYear()} Tirtayasa Information Security Society. All rights reserved.
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { formatRouteLabel } from "../lib/formatRouteLabel"
 
 interface TopNavBarProps {
   currentRoute: string

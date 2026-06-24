@@ -1,21 +1,56 @@
+import Threads from "../components/Threads"
+import Aurora from "../components/Aurora"
+import ScrollReveal from "../components/ScrollReveal"
+import TextType from "../components/TextType"
+import SpotlightCard from "../components/SpotlightCard"
+
 interface HomePageProps {
   onOpenJoinModal: () => void
+  isDark: boolean
 }
 
-export function HomePage({ onOpenJoinModal }: HomePageProps) {
+export function HomePage({ onOpenJoinModal, isDark }: HomePageProps) {
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative w-full overflow-hidden px-margin-mobile py-24 md:px-margin-desktop md:py-32">
         {/* Decorative cyber background */}
         <div className="absolute inset-0 bg-cyber-pattern opacity-30 pointer-events-none z-0"></div>
+        <div className="absolute inset-0 pointer-events-none z-0 opacity-45">
+          <Threads
+            amplitude={1.2}
+            color={[0.12, 0.44, 0.85]}
+            distance={0.3}
+            enableMouseInteraction={true}
+          />
+        </div>
 
-        <div className="mx-auto grid max-w-container-max grid-cols-1 gap-gutter items-center relative z-10 md:grid-cols-2">
+        <div className="mx-auto grid max-w-container-max grid-cols-1 gap-gutter items-center relative z-10 md:grid-cols-12">
           {/* Text Content */}
-          <div className="flex flex-col items-start gap-8">
+          <div className="flex flex-col items-start gap-8 md:col-span-7 lg:col-span-8">
             <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">
-              Securing the Future of <br />
-              <span className="full-spectrum-gradient text-transparent">Digital Architecture.</span>
+              <TextType
+                text="Securing the Future of"
+                loop={false}
+                typingSpeed={40}
+                showCursor={false}
+              />
+              <br />
+              <TextType
+                text={[
+                  "Digital Architecture.",
+                  "Cyber Infrastructure.",
+                  "Information Security."
+                ]}
+                loop={true}
+                typingSpeed={40}
+                deletingSpeed={30}
+                pauseDuration={2000}
+                showCursor={true}
+                cursorCharacter="|"
+                cursorClassName="text-primary font-bold animate-pulse"
+                className="full-spectrum-gradient text-transparent md:whitespace-nowrap"
+              />
             </h1>
 
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
@@ -42,7 +77,7 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
           </div>
 
           {/* Hero Image / Logo */}
-          <div className="flex justify-center md:justify-end relative mt-12 md:mt-0">
+          <div className="flex justify-center md:justify-end relative mt-12 md:mt-0 md:col-span-5 lg:col-span-4">
             <div className="absolute inset-0 bg-gradient-to-tr from-primary-container/20 to-tertiary-container/20 blur-[80px] rounded-full z-0 dark:from-primary-container/10 dark:to-purple-guild/10"></div>
             <img
               alt="TISS Core Logo"
@@ -53,13 +88,47 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
         </div>
       </section>
 
-      {/* The Null Protocol (Terminal / Cyber-Technical Edge) */}
-      <section className="bg-surface px-margin-mobile py-24 border-y border-outline-variant md:px-margin-desktop">
+      {/* Continuous Cyber Canvas (Null Protocol, Metrics, and Pillars) */}
+      <div className="relative overflow-hidden w-full border-t border-outline-variant">
+        {/* Ethereal background aura connecting the sections */}
+        <div className="absolute inset-0 pointer-events-none z-0 opacity-35 dark:opacity-20">
+          <Aurora
+            colorStops={
+              isDark
+                ? ["#1E6FD9", "#7A3FD1", "#2E9E5B"]
+                : ["#d2e4ff", "#eedeff", "#d9f5e3"]
+            }
+            amplitude={1.0}
+            blend={0.6}
+            speed={0.5}
+          />
+        </div>
+
+        {/* The Null Protocol (Terminal / Cyber-Technical Edge) */}
+        <section className="bg-transparent px-margin-mobile py-24 border-b border-outline-variant md:px-margin-desktop relative z-10">
         <div className="mx-auto max-w-container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-            {/* Left Description */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <h2 className="font-h1 text-h1 text-on-surface">The Null Protocol</h2>
+          <ScrollReveal>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+              {/* Left Description */}
+              <div className="lg:col-span-5 flex flex-col gap-6">
+                <h2 className="font-h1 text-h1 text-on-surface">
+                  <TextType
+                    text={[
+                      "The Null Protocol.",
+                      "L0 Sandbox Arena.",
+                      "Clearance Level L1.",
+                      "Simulated Exploitation."
+                    ]}
+                    loop={true}
+                    startOnVisible={true}
+                    typingSpeed={45}
+                    deletingSpeed={30}
+                    pauseDuration={2000}
+                    showCursor={true}
+                    cursorCharacter="_"
+                    cursorClassName="text-green-guild font-bold"
+                  />
+                </h2>
               <p className="font-body-md text-body-md text-on-surface-variant">
                 Our foundational curriculum designed to tear down assumptions and build a ground-up understanding of system architecture, networking, and adversarial mindsets. Step into the simulated environment and elevate your clearance from L0 to L2.
               </p>
@@ -115,61 +184,87 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
                   <span className="text-blue-team">user@sandbox-L0:~$</span>{" "}
                   <span className="ml-2 w-2 h-4 bg-green-guild animate-pulse inline-block dark:shadow-[0_0_8px_rgba(46,158,91,0.8)]"></span>
                 </div>
-              </div>
             </div>
           </div>
         </div>
+      </ScrollReveal>
+    </div>
       </section>
 
       {/* Metrics Row */}
-      <section className="bg-surface-container-low px-margin-mobile py-16 border-b border-outline-variant md:px-margin-desktop">
+      <section className="bg-transparent px-margin-mobile py-16 border-b border-outline-variant md:px-margin-desktop relative z-10">
         <div className="mx-auto max-w-container-max">
           <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
             {/* Metric 1 */}
-            <div className="flex flex-col gap-2">
-              <span className="font-display-lg text-h1 text-blue-team md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(30,111,217,0.3)]">
-                2026
-              </span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                Established
-              </span>
-            </div>
+            <ScrollReveal delay={0}>
+              <div className="flex flex-col gap-2">
+                <span className="font-display-lg text-h1 text-blue-team md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(30,111,217,0.3)]">
+                  2026
+                </span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+                  Established
+                </span>
+              </div>
+            </ScrollReveal>
             {/* Metric 2 */}
-            <div className="flex flex-col gap-2">
-              <span className="font-display-lg text-h1 text-green-guild md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(46,158,91,0.3)]">
-                50+
-              </span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                Active Members
-              </span>
-            </div>
+            <ScrollReveal delay={100}>
+              <div className="flex flex-col gap-2">
+                <span className="font-display-lg text-h1 text-green-guild md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(46,158,91,0.3)]">
+                  50+
+                </span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+                  Active Members
+                </span>
+              </div>
+            </ScrollReveal>
             {/* Metric 3 */}
-            <div className="flex flex-col gap-2">
-              <span className="font-display-lg text-h1 text-orange-guild md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(232,130,30,0.3)]">
-                12+
-              </span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                Technical Briefs
-              </span>
-            </div>
+            <ScrollReveal delay={200}>
+              <div className="flex flex-col gap-2">
+                <span className="font-display-lg text-h1 text-orange-guild md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(232,130,30,0.3)]">
+                  12+
+                </span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+                  Technical Briefs
+                </span>
+              </div>
+            </ScrollReveal>
             {/* Metric 4 */}
-            <div className="flex flex-col gap-2">
-              <span className="font-display-lg text-h1 text-red-team md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(232,35,42,0.3)]">
-                24
-              </span>
-              <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
-                Curriculum Weeks
-              </span>
-            </div>
+            <ScrollReveal delay={300}>
+              <div className="flex flex-col gap-2">
+                <span className="font-display-lg text-h1 text-red-team md:text-display-lg dark:drop-shadow-[0_0_10px_rgba(232,35,42,0.3)]">
+                  24
+                </span>
+                <span className="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">
+                  Curriculum Weeks
+                </span>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
       {/* Core Operational Pillars */}
-      <section className="bg-surface-container-lowest px-margin-mobile py-24 md:px-margin-desktop">
+      <section className="bg-transparent px-margin-mobile py-24 md:px-margin-desktop relative z-10">
         <div className="mx-auto max-w-container-max">
           <div className="text-center mb-16">
-            <h2 className="font-h1 text-h1 text-on-surface mb-4">Core Operational Pillars</h2>
+            <h2 className="font-h1 text-h1 text-on-surface mb-4">
+              <TextType
+                text={[
+                  "Core Operational Pillars.",
+                  "Joint Cyber Operations.",
+                  "Full Spectrum Defense.",
+                  "Adversarial Emulation."
+                ]}
+                loop={true}
+                startOnVisible={true}
+                typingSpeed={45}
+                deletingSpeed={30}
+                pauseDuration={2000}
+                showCursor={true}
+                cursorCharacter="|"
+                cursorClassName="text-primary font-bold"
+              />
+            </h2>
             <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">
               TISS is structured into functional teams. Each pillar operates independently but integrates seamlessly to simulate full-spectrum cyber operations.
             </p>
@@ -178,82 +273,98 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
           {/* Bento Grid */}
           <div className="grid grid-cols-1 gap-gutter md:grid-cols-3">
             {/* Red Team Card */}
-            <div className="bg-surface rounded-xl border-t-4 border-t-red-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(232,35,42,0.15)] transition-shadow relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-team/5 rounded-bl-full -z-10 group-hover:bg-red-team/10 transition-colors"></div>
-              <div className="w-12 h-12 rounded-lg bg-red-team/10 flex items-center justify-center mb-6 border border-red-team/20">
-                <span
-                  className="material-symbols-outlined text-red-team dark:drop-shadow-[0_0_8px_rgba(232,35,42,0.5)]"
-                  data-icon="security"
-                >
-                  security
-                </span>
-              </div>
-              <h3 className="font-h3 text-h3 text-on-surface mb-3">Red Team</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
-                Offensive security, penetration testing, and adversarial emulation. Pushing systems to their absolute breaking point.
-              </p>
-              <button
-                className="inline-flex items-center text-left text-red-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(232,35,42,0.5)] transition-all"
-                onClick={onOpenJoinModal}
-                type="button"
+            <ScrollReveal delay={0}>
+              <SpotlightCard
+                className="bg-surface rounded-xl border-t-4 border-t-red-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(232,35,42,0.15)] transition-shadow relative group"
+                spotlightColor="rgba(232, 35, 42, 0.15)"
               >
-                Explore Offense{" "}
-                <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
-              </button>
-            </div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-red-team/5 rounded-bl-full -z-10 group-hover:bg-red-team/10 transition-colors"></div>
+                <div className="w-12 h-12 rounded-lg bg-red-team/10 flex items-center justify-center mb-6 border border-red-team/20">
+                  <span
+                    className="material-symbols-outlined text-red-team dark:drop-shadow-[0_0_8px_rgba(232,35,42,0.5)]"
+                    data-icon="security"
+                  >
+                    security
+                  </span>
+                </div>
+                <h3 className="font-h3 text-h3 text-on-surface mb-3">Red Team</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
+                  Offensive security, penetration testing, and adversarial emulation. Pushing systems to their absolute breaking point.
+                </p>
+                <button
+                  className="inline-flex items-center text-left text-red-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(232,35,42,0.5)] transition-all"
+                  onClick={onOpenJoinModal}
+                  type="button"
+                >
+                  Explore Offense{" "}
+                  <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
+                </button>
+              </SpotlightCard>
+            </ScrollReveal>
 
             {/* Blue Team Card */}
-            <div className="bg-surface rounded-xl border-t-4 border-t-blue-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(30,111,217,0.15)] transition-shadow relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-team/5 rounded-bl-full -z-10 group-hover:bg-blue-team/10 transition-colors"></div>
-              <div className="w-12 h-12 rounded-lg bg-blue-team/10 flex items-center justify-center mb-6 border border-blue-team/20">
-                <span
-                  className="material-symbols-outlined text-blue-team dark:drop-shadow-[0_0_8px_rgba(30,111,217,0.5)]"
-                  data-icon="shield"
-                >
-                  shield
-                </span>
-              </div>
-              <h3 className="font-h3 text-h3 text-on-surface mb-3">Blue Team</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
-                Defensive architecture, SOC operations, and incident response. Building resilient systems that withstand assault.
-              </p>
-              <button
-                className="inline-flex items-center text-left text-blue-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(30,111,217,0.5)] transition-all"
-                onClick={onOpenJoinModal}
-                type="button"
+            <ScrollReveal delay={150}>
+              <SpotlightCard
+                className="bg-surface rounded-xl border-t-4 border-t-blue-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(30,111,217,0.15)] transition-shadow relative group"
+                spotlightColor="rgba(30, 111, 217, 0.15)"
               >
-                Explore Defense{" "}
-                <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
-              </button>
-            </div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-team/5 rounded-bl-full -z-10 group-hover:bg-blue-team/10 transition-colors"></div>
+                <div className="w-12 h-12 rounded-lg bg-blue-team/10 flex items-center justify-center mb-6 border border-blue-team/20">
+                  <span
+                    className="material-symbols-outlined text-blue-team dark:drop-shadow-[0_0_8px_rgba(30,111,217,0.5)]"
+                    data-icon="shield"
+                  >
+                    shield
+                  </span>
+                </div>
+                <h3 className="font-h3 text-h3 text-on-surface mb-3">Blue Team</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
+                  Defensive architecture, SOC operations, and incident response. Building resilient systems that withstand assault.
+                </p>
+                <button
+                  className="inline-flex items-center text-left text-blue-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(30,111,217,0.5)] transition-all"
+                  onClick={onOpenJoinModal}
+                  type="button"
+                >
+                  Explore Defense{" "}
+                  <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
+                </button>
+              </SpotlightCard>
+            </ScrollReveal>
 
             {/* Yellow Team Card */}
-            <div className="bg-surface rounded-xl border-t-4 border-t-yellow-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(232,180,0,0.15)] transition-shadow relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-team/5 rounded-bl-full -z-10 group-hover:bg-yellow-team/10 transition-colors"></div>
-              <div className="w-12 h-12 rounded-lg bg-yellow-team/10 flex items-center justify-center mb-6 border border-yellow-team/20">
-                <span
-                  className="material-symbols-outlined text-yellow-team dark:drop-shadow-[0_0_8px_rgba(232,180,0,0.5)]"
-                  data-icon="architecture"
-                >
-                  architecture
-                </span>
-              </div>
-              <h3 className="font-h3 text-h3 text-on-surface mb-3">Yellow Team</h3>
-              <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
-                Systems architecture, infrastructure deployment, and malware analysis. The foundational builders and reverse engineers.
-              </p>
-              <button
-                className="inline-flex items-center text-left text-yellow-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(232,180,0,0.5)] transition-all"
-                onClick={onOpenJoinModal}
-                type="button"
+            <ScrollReveal delay={300}>
+              <SpotlightCard
+                className="bg-surface rounded-xl border-t-4 border-t-yellow-team border-x border-b border-outline-variant p-8 flex flex-col hover:shadow-md dark:hover:shadow-[0_0_20px_rgba(232,180,0,0.15)] transition-shadow relative group"
+                spotlightColor="rgba(232, 180, 0, 0.15)"
               >
-                Explore Architecture{" "}
-                <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
-              </button>
-            </div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-team/5 rounded-bl-full -z-10 group-hover:bg-yellow-team/10 transition-colors"></div>
+                <div className="w-12 h-12 rounded-lg bg-yellow-team/10 flex items-center justify-center mb-6 border border-yellow-team/20">
+                  <span
+                    className="material-symbols-outlined text-yellow-team dark:drop-shadow-[0_0_8px_rgba(232,180,0,0.5)]"
+                    data-icon="architecture"
+                  >
+                    architecture
+                  </span>
+                </div>
+                <h3 className="font-h3 text-h3 text-on-surface mb-3">Yellow Team</h3>
+                <p className="font-body-md text-body-md text-on-surface-variant flex-grow mb-6">
+                  Systems architecture, infrastructure deployment, and malware analysis. The foundational builders and reverse engineers.
+                </p>
+                <button
+                  className="inline-flex items-center text-left text-yellow-team font-label-caps text-label-caps hover:underline underline-offset-4 mt-auto group-hover:drop-shadow-[0_0_8px_rgba(232,180,0,0.5)] transition-all"
+                  onClick={onOpenJoinModal}
+                  type="button"
+                >
+                  Explore Architecture{" "}
+                  <span className="material-symbols-outlined text-[16px] ml-1">chevron_right</span>
+                </button>
+              </SpotlightCard>
+            </ScrollReveal>
           </div>
         </div>
       </section>
     </div>
+  </div>
   )
 }
