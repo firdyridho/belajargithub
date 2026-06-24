@@ -21,19 +21,19 @@ export function Footer() {
                 Platform
               </h4>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Academy
               </a>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 LMS
               </a>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 CMS
@@ -46,19 +46,19 @@ export function Footer() {
                 Systems
               </h4>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Monitor
               </a>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Admin
               </a>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Status
@@ -71,13 +71,13 @@ export function Footer() {
                 Legal
               </h4>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Privacy Policy
               </a>
               <a
-                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 ring-primary rounded-sm"
+                className="w-max font-body-md text-body-md text-on-surface-variant hover:text-on-surface hover:underline decoration-primary underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-sm"
                 href="#"
               >
                 Code of Conduct

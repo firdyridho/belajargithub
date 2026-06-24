@@ -9,27 +9,19 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
       <section className="relative w-full overflow-hidden px-margin-mobile py-24 md:px-margin-desktop md:py-32">
         {/* Decorative cyber background */}
         <div className="absolute inset-0 bg-cyber-pattern opacity-30 pointer-events-none z-0"></div>
-        
+
         <div className="mx-auto grid max-w-container-max grid-cols-1 gap-gutter items-center relative z-10 md:grid-cols-2">
           {/* Text Content */}
           <div className="flex flex-col items-start gap-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps dark:shadow-[0_0_10px_rgba(46,158,91,0.1)]">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-ok opacity-75 dark:shadow-[0_0_8px_rgba(46,158,91,0.8)]"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-status-ok"></span>
-              </span>
-              System Operational
-            </div>
-            
             <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">
               Securing the Future of <br />
               <span className="full-spectrum-gradient text-transparent">Digital Architecture.</span>
             </h1>
-            
+
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
               Tirtayasa Information Security Society is a multi-disciplinary technical collective dedicated to advancing security standards, rigorous training, and threat intelligence.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 mt-4">
               <button
                 className="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-3 rounded hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-2 dark:shadow-[0_0_15px_rgba(30,111,217,0.3)]"
@@ -104,7 +96,7 @@ export function HomePage({ onOpenJoinModal }: HomePageProps) {
                   user@tiss-core:~
                 </span>
               </div>
-              
+
               {/* Terminal Body */}
               <div className="p-6 font-mono-code text-mono-code text-green-guild flex-grow overflow-x-auto dark:text-shadow-[0_0_2px_rgba(46,158,91,0.3)]">
                 <div className="mb-2">
