@@ -2,12 +2,45 @@ import ScrollReveal from "../components/ScrollReveal"
 import TextType from "../components/TextType"
 import CountUp from "../components/CountUp"
 import SpotlightCard from "../components/SpotlightCard"
+import Threads from "../components/Threads"
+import Aurora from "../components/Aurora"
 
-export function AboutPage() {
+interface AboutPageProps {
+  isDark: boolean
+}
+
+export function AboutPage({ isDark }: AboutPageProps) {
   return (
-    <div className="w-full flex flex-col gap-24 py-12 md:py-24">
+    <div className="w-full relative overflow-hidden flex flex-col gap-24 py-12 md:py-24">
+      {/* Decorative cyber background */}
+      <div className="absolute inset-0 bg-cyber-pattern opacity-30 pointer-events-none z-0"></div>
+      
+      {/* Ethereal background aura connecting the sections */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-35 dark:opacity-20">
+        <Aurora
+          colorStops={
+            isDark
+              ? ["#1E6FD9", "#7A3FD1", "#2E9E5B"]
+              : ["#d2e4ff", "#eedeff", "#d9f5e3"]
+          }
+          amplitude={1.0}
+          blend={0.6}
+          speed={0.5}
+        />
+      </div>
+      
+      {/* Interactive cyber network texture */}
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-45">
+        <Threads
+          amplitude={1.2}
+          color={[0.12, 0.44, 0.85]}
+          distance={0.3}
+          enableMouseInteraction={true}
+        />
+      </div>
+
       {/* Hero Section: The Null Protocol */}
-      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop">
+      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop relative z-10">
         <ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
             <div className="md:col-span-7 flex flex-col gap-6">
@@ -19,9 +52,16 @@ export function AboutPage() {
               </div>
               <h1 className="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface">
                 <TextType
-                  text="The Null Protocol."
-                  loop={false}
+                  text={[
+                    "The Null Protocol.",
+                    "Zero Trust Doctrine.",
+                    "Continuous Validation.",
+                    "Assumed Compromise."
+                  ]}
+                  loop={true}
                   typingSpeed={40}
+                  deletingSpeed={30}
+                  pauseDuration={2000}
                   showCursor={true}
                   cursorCharacter="|"
                   cursorClassName="text-primary font-bold animate-pulse"
@@ -64,15 +104,22 @@ export function AboutPage() {
       </section>
 
       {/* Origins & History */}
-      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop">
+      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop relative z-10">
         <ScrollReveal delay={100}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
             <div className="md:col-span-4 border-t-2 border-outline-variant pt-4">
               <h2 className="font-h2 text-h2 text-on-surface mb-2">
                 <TextType
-                  text="Our Origins."
-                  loop={false}
+                  text={[
+                    "Our Origins.",
+                    "Academic Imperative.",
+                    "Practical Cyber Ops.",
+                    "Student-Led Collective."
+                  ]}
+                  loop={true}
                   typingSpeed={45}
+                  deletingSpeed={30}
+                  pauseDuration={2000}
                   showCursor={true}
                   cursorCharacter="|"
                   cursorClassName="text-primary font-bold"
@@ -114,14 +161,21 @@ export function AboutPage() {
       </section>
 
       {/* Organizational Topology */}
-      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop flex flex-col gap-12">
+      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop flex flex-col gap-12 relative z-10">
         <ScrollReveal>
           <div className="flex flex-col gap-2">
             <h2 className="font-h1 text-h1 text-on-surface tracking-tight">
               <TextType
-                text="Organizational Topology."
-                loop={false}
+                text={[
+                  "Organizational Topology.",
+                  "Three-Tiered Clearance.",
+                  "Operational Command.",
+                  "Agile Cyber Framework."
+                ]}
+                loop={true}
                 typingSpeed={45}
+                deletingSpeed={30}
+                pauseDuration={2000}
                 showCursor={true}
                 cursorCharacter="|"
                 cursorClassName="text-primary font-bold"
@@ -136,7 +190,7 @@ export function AboutPage() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* L0 Card */}
-          <ScrollReveal delay={50}>
+          <ScrollReveal delay={50} className="h-full">
             <SpotlightCard
               className="bg-surface rounded-xl border border-outline-variant p-8 flex flex-col gap-6 hover:-translate-y-1 transition-transform duration-300 shadow-sm h-full"
               spotlightColor="rgba(255, 255, 255, 0.05)"
@@ -160,7 +214,7 @@ export function AboutPage() {
           </ScrollReveal>
 
           {/* L1 Card */}
-          <ScrollReveal delay={150}>
+          <ScrollReveal delay={150} className="h-full">
             <SpotlightCard
               className="bg-primary/5 rounded-xl border border-primary/20 p-8 flex flex-col gap-6 hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden shadow-sm h-full"
               spotlightColor="rgba(30, 111, 217, 0.15)"
@@ -185,7 +239,7 @@ export function AboutPage() {
           </ScrollReveal>
 
           {/* L2 Card */}
-          <ScrollReveal delay={250}>
+          <ScrollReveal delay={250} className="h-full">
             <SpotlightCard
               className="bg-surface rounded-xl border border-outline-variant p-8 flex flex-col gap-6 hover:-translate-y-1 transition-transform duration-300 shadow-sm relative overflow-hidden h-full"
               spotlightColor="rgba(122, 63, 209, 0.15)"
@@ -212,7 +266,7 @@ export function AboutPage() {
       </section>
 
       {/* Vision & Mission */}
-      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop">
+      <section className="mx-auto max-w-container-max w-full px-margin-mobile md:px-margin-desktop relative z-10">
         <ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {/* Vision Card */}

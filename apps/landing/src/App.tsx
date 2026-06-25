@@ -70,7 +70,7 @@ export default function App() {
       case "/":
         return <HomePage onOpenJoinModal={() => setIsJoinModalOpen(true)} isDark={isDark} />
       case "/about":
-        return <AboutPage />
+        return <AboutPage isDark={isDark} />
       case "/organigram":
         return <OrganigramPage />
       case "/contact":
