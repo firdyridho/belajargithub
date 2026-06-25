@@ -23,3 +23,8 @@ func RegisterRoutes(router fiber.Router, handler *Handler) {
 func (handler *Handler) NotImplemented(c *fiber.Ctx) error {
 	return c.Status(fiber.StatusNotImplemented).JSON(response.Error("endpoint not implemented"))
 }
+
+func (handler *Handler) UserQuiz(c *fiber.Ctx) error {
+
+	return nil
+}
